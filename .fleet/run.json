@@ -1,0 +1,50 @@
+{
+    "configurations": [
+        {
+            "type": "cargo",
+            "name": "cargo build",
+            "cargoArgs": [
+                "build"
+            ],
+        },
+        {
+            "type": "cargo",
+            "name": "cargo build --release",
+            "cargoArgs": [
+                "build"
+            ],
+            "cargoExtraArgs": [
+                "--release"
+            ],
+        },
+        {
+            "type": "cargo",
+            "name": "cargo run",
+            "cargoArgs": [
+                "run"
+            ],
+        },
+        {
+            "type": "cargo",
+            "name": "cargo run --release",
+            "cargoArgs": [
+                "run",
+            ],
+            "cargoExtraArgs": [
+                "--release"
+            ],
+        },
+        {
+            "type": "cargo",
+            "name": "cargo clean",
+            "cargoArgs": [
+                "clean"
+            ],
+        },
+        {
+            "type": "cargo",
+            "name": "cargo update",
+            "cargoArgs": ["update"],
+        }
+    ]
+}
