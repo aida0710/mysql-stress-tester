@@ -5,7 +5,7 @@
             "name": "cargo build",
             "cargoArgs": [
                 "build"
-            ],
+            ]
         },
         {
             "type": "cargo",
@@ -15,36 +15,41 @@
             ],
             "cargoExtraArgs": [
                 "--release"
-            ],
+            ]
         },
         {
             "type": "cargo",
             "name": "cargo run",
             "cargoArgs": [
                 "run"
-            ],
+            ]
         },
         {
             "type": "cargo",
             "name": "cargo run --release",
             "cargoArgs": [
-                "run",
+                "run"
             ],
             "cargoExtraArgs": [
                 "--release"
-            ],
+            ]
         },
         {
             "type": "cargo",
             "name": "cargo clean",
             "cargoArgs": [
                 "clean"
-            ],
+            ]
         },
         {
             "type": "cargo",
             "name": "cargo update",
-            "cargoArgs": ["update"],
+            "cargoArgs": ["update"]
+        },
+        {
+            "type": "cargo",
+            "name": "cargo test",
+            "cargoArgs": ["test"]
         }
     ]
 }
