@@ -1,4 +1,4 @@
-use json::{parse, Error, JsonValue};
+use json::{parse, JsonValue};
 use std::fs::File;
 use std::io::prelude::*;
 
@@ -12,9 +12,17 @@ fn main() {
         prefix = PREFIX
     );
 
-    let mut setting_file =
-        File::open("./config/mysql.json").expect("./config/mysql.jsonが見つかりません。");
+    let parsed = json_parser("./config/mysql.json").expect("JSONのパースに失敗しました。");
 
+    if let Some(port) = parsed["port"].as_str() {
+        println!("ポート番号: {}", port);
+    } else {
+        println!("ポート番号が設定ファイルに存在しないか、型が正しくありません。");
+    }
+}
+
+fn json_parser(path: &str) -> Result<JsonValue, Err> {
+    let mut setting_file = File::open(path).expect("ファイルが見つかりません。");
     let mut contents = String::new();
     setting_file
         .read_to_string(&mut contents)
@@ -22,10 +30,7 @@ fn main() {
 
     println!("With text:\n{}", contents);
 
-    let parsed = json::parse(&contents).expect("ファイルの文字列パースに失敗しました。");
-    if let Some(port) = parsed["port"].as_str() {
-        println!("ポート番号: {}", port);
-    } else {
-        println!("ポート番号が設定ファイルに存在しないか、型が正しくありません。");
-    }
+    let parsed = parse(&contents).expect("JSONのパースに失敗しました。");
+
+    Ok(parsed)
 }
