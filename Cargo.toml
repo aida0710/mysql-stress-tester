@@ -6,7 +6,7 @@ edition = "2021"
 
 [dependencies]
 dotenv = { version = "0.15" } # .envファイルを読み込む
-rand = { version = "0.8", features = ["small_rng"] } # 乱数生成
 mysql = { version = "25.0.1" } # MySQLクライアント
-tokio = { version = "1.40.0",features = ["full"]  } # 非同期ランタイム
+tokio = { version = "1.40.0", features = ["full"] } # 非同期ランタイム
 futures = { version = "0.3.31" } # 非同期プログラミング
+thiserror = "1.0.64" # 非同期プログラミング
