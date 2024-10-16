@@ -18,8 +18,6 @@ impl Config {
         let database_port = env::var("DATABASE_PORT")?;
         let database_name = env::var("DATABASE_NAME")?;
 
-        println!("{} {} {} {} {}", database_user, database_password, database_host, database_port, database_name);
-
         let database_url = format!(
             "mysql://{}:{}@{}:{}/{}",
             database_user, database_password, database_host, database_port, database_name
