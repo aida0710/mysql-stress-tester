@@ -30,4 +30,6 @@
 
 ## ユーザー操作
 - rootユーザーのパスワード設定
-  - `ALTER USER 'root'@'localhost' IDENTIFIED BY 'password';`
+  - `UPDATE mysql.user SET Password = PASSWORD('new_password') WHERE User = 'root';`
+- 設定を反映
+  - `FLUSH PRIVILEGES;`
