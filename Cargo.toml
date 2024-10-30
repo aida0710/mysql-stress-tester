@@ -5,8 +5,12 @@ authors = ["相田 優希 <51500566+aida0710@users.noreply.github.com>"]
 edition = "2021"
 
 [dependencies]
-dotenv = { version = "0.15" } # .envファイルを読み込む
-mysql = { version = "25.0.1" } # MySQLクライアント
-tokio = { version = "1.40.0", features = ["full"] } # 非同期ランタイム
-futures = { version = "0.3.31" } # 非同期プログラミング
-thiserror = "1.0.64" # 非同期プログラミング
+dotenv = { version = "0.15" }
+mysql = { version = "25.0" }
+tokio = { version = "1.40", features = ["full"] }
+futures = { version = "0.3" }
+thiserror = "1.0"
+uuid = { version = "1.11", features = ["v6", "v7"] }
+time = { version = "0.3", features = ["macros", "formatting"] }
+once_cell = "1.20"
+rand = "0.8"

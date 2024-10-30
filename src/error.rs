@@ -10,9 +10,6 @@ pub enum LoadTestError {
 
     #[error("MySQLエラー: {0}")]
     MySqlError(#[from] mysql::Error),
-
-    #[error("タスクの実行に失敗しました")]
-    TaskExecutionError,
 }
 
 pub type Result<T> = std::result::Result<T, LoadTestError>;
