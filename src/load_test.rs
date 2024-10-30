@@ -32,7 +32,7 @@ async fn execute_single_query(pool: &Pool) -> Result<String> {
     single_execute_query(&mut conn, &table_name).map_err(LoadTestError::from)?;
 
     let duration = start_time.elapsed();
-    println!("\r事前クエリ実行完了。実行時間: {:?}", duration);
+    println!("事前クエリ実行完了。実行時間: {:?}", duration);
 
     Ok(table_name)
 }
