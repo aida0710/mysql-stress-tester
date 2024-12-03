@@ -4,7 +4,7 @@ use crate::error::Result;
 
 pub struct Config {
     pub database_url: String,
-    pub total_batches: usize,  // 総バッチ数
+    pub total_queries: usize,
     pub connections: usize,
 }
 
@@ -23,19 +23,19 @@ impl Config {
             database_user, database_password, database_host, database_port, database_name
         );
 
-        // バッチの総数 (デフォルト: 1000 = 100万レコード)
-        let total_batches: usize = env::var("TOTAL_BATCHES")
-            .unwrap_or_else(|_| "1000".to_string())
+        // クエリの総数 (デフォルト: 1000000)
+        let total_queries: usize = env::var("TOTAL_QUERIES")
+            .unwrap_or_else(|_| "1000000".to_string())
             .parse()?;
 
-        // 接続数 (デフォルト: 10)
+        // 接続数 (デフォルト: 100)
         let connections: usize = env::var("CONNECTIONS")
-            .unwrap_or_else(|_| "10".to_string())
+            .unwrap_or_else(|_| "100".to_string())
             .parse()?;
 
         Ok(Config {
             database_url,
-            total_batches,
+            total_queries,
             connections,
         })
     }
